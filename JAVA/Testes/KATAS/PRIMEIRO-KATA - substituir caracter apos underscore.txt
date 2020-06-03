@@ -1,0 +1,45 @@
+================== solução bonita do site
+import java.lang.StringBuilder;
+class Solution{
+
+  static String toCamelCase(String s){
+    String[] words = s.split("[_\\-]");
+    s=words[0];
+    for(int i=1; i<words.length; i++)
+      s+=words[i].substring(0,1).toUpperCase()+words[i].substring(1).toLowerCase();
+    return s;
+  }
+}
+
+
+=============== minha solução
+
+package src.main.java;
+
+
+public class TesteMainApplication {
+
+    public static void main(String[] args) {
+
+        String s="teste_teste";
+        char underscore='_';
+        char dash='-';
+        char chars[]=s.toCharArray();
+
+        for (int i=0; i<s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == underscore || c == dash){
+                char d = s.charAt(i+1);
+                d = Character.toUpperCase(d);
+                chars[i+1]=d;
+                s = new String(chars);
+            }
+        }
+        s = s.replaceAll("_","");
+        s = s.replaceAll("-","");
+
+        System.out.println(s);
+
+
+    }
+}
